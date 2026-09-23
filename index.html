@@ -7,6 +7,7 @@
     <title>Your Course | ₹39</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,7 +15,7 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background: #f5f7fb;
             color: #222;
         }
@@ -29,7 +30,7 @@
             background: white;
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
             text-align: center;
         }
 
@@ -41,11 +42,13 @@
             border-radius: 20px;
             font-size: 13px;
             margin-bottom: 15px;
+            letter-spacing: 0.5px;
         }
 
         h1 {
             font-size: 30px;
             margin-bottom: 12px;
+            line-height: 1.2;
         }
 
         .description {
@@ -58,6 +61,9 @@
             text-align: left;
             margin: 20px 0;
             line-height: 2;
+            background: #f8f8f8;
+            padding: 15px 18px;
+            border-radius: 12px;
         }
 
         .price {
@@ -89,6 +95,10 @@
             border-top: 1px solid #ddd;
         }
 
+        .payment-title {
+            margin-bottom: 10px;
+        }
+
         .qr {
             width: 220px;
             height: 220px;
@@ -105,6 +115,7 @@
             border-radius: 8px;
             margin: 10px 0 20px;
             font-weight: bold;
+            word-break: break-word;
         }
 
         .instruction {
@@ -118,7 +129,7 @@
             display: block;
             text-align: left;
             font-weight: bold;
-            margin: 12px 0 6px;
+            margin: 14px 0 6px;
         }
 
         input {
@@ -127,6 +138,11 @@
             border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #111;
         }
 
         .submit-btn {
@@ -146,6 +162,11 @@
             background: #11652f;
         }
 
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
         .note {
             font-size: 12px;
             color: #777;
@@ -160,6 +181,7 @@
             background: #e8f7ed;
             border-radius: 10px;
             color: #176b35;
+            line-height: 1.5;
         }
 
         footer {
@@ -168,8 +190,41 @@
             font-size: 12px;
             margin-top: 25px;
         }
+
+        .step {
+            background: #f8f8f8;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                margin: 15px auto;
+                padding: 12px;
+            }
+
+            .product {
+                padding: 22px;
+                border-radius: 16px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .qr {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
     </style>
 </head>
+
 
 <body>
 
@@ -177,27 +232,51 @@
 
     <div class="product">
 
-        <span class="badge">DIGITAL COURSE</span>
+        <!-- PRODUCT HEADER -->
 
-        <h1>YOUR COURSE NAME</h1>
+        <span class="badge">
+            DIGITAL COURSE
+        </span>
+
+        <h1>
+            YOUR COURSE NAME
+        </h1>
 
         <p class="description">
             Learn everything you need about this course with our
             beginner-friendly course material, notes and resources.
         </p>
 
+
+        <!-- COURSE FEATURES -->
+
         <div class="features">
+
             ✓ Complete course material<br>
+
             ✓ Easy-to-understand notes<br>
+
             ✓ Practical resources<br>
+
             ✓ Lifetime access
+
         </div>
+
+
+        <!-- PRICE -->
 
         <div class="price">
             ₹39
         </div>
 
-        <button class="buy-btn" onclick="showPayment()">
+
+        <!-- BUY BUTTON -->
+
+        <button
+            type="button"
+            class="buy-btn"
+            onclick="showPayment()"
+        >
             BUY NOW
         </button>
 
@@ -206,34 +285,79 @@
 
         <div id="paymentSection">
 
-            <h2>Complete Your Payment</h2>
+            <h2 class="payment-title">
+                Complete Your Payment
+            </h2>
 
             <p class="instruction">
-                Scan the QR code below using Google Pay, PhonePe,
-                Paytm or any other UPI application.
+
+                Scan the QR code below using
+                Google Pay, PhonePe, Paytm or
+                any other UPI application.
+
             </p>
 
-            <img src="upi-qr.png" class="qr" alt="UPI QR Code">
+
+            <!-- QR CODE -->
+
+            <img
+                src="upi-qr.png"
+                class="qr"
+                alt="UPI QR Code"
+            >
+
+
+            <!-- CHANGE YOUR UPI ID HERE -->
 
             <div class="upi">
-                UPI ID: YOUR-UPI-ID@upi
+
+                UPI ID:
+                YOUR-UPI-ID@upi
+
             </div>
 
+
+            <div class="step">
+
+                <strong>Step 1:</strong>
+                Pay exactly ₹39 using the QR code.
+
+            </div>
+
+            <div class="step">
+
+                <strong>Step 2:</strong>
+                Copy your UPI Transaction ID / UTR.
+
+            </div>
+
+            <div class="step">
+
+                <strong>Step 3:</strong>
+                Fill in your details below.
+
+            </div>
+
+
             <p class="instruction">
-                Pay exactly <strong>₹39</strong>.
-                After completing the payment, enter your details
-                and transaction ID below.
+
+                After completing the payment,
+                enter your details and transaction ID below.
+
             </p>
 
 
             <!-- CUSTOMER FORM -->
 
             <form
+                id="paymentForm"
                 action="https://script.google.com/macros/s/AKfycbzaxdvgu_k6DcniSXrYYvm1E0JRkpoOVxKZR-vZqmf_cyoc_iSOOW1Y49ZVWhJDAw4m/exec"
                 method="POST"
                 target="hiddenFrame"
-                onsubmit="submitted()"
             >
+
+
+                <!-- NAME -->
 
                 <label for="name">
                     Full Name
@@ -243,10 +367,12 @@
                     type="text"
                     id="name"
                     name="name"
-                    placeholder="Enter your name"
+                    placeholder="Enter your full name"
                     required
                 >
 
+
+                <!-- EMAIL -->
 
                 <label for="email">
                     Email Address
@@ -261,6 +387,8 @@
                 >
 
 
+                <!-- PHONE -->
+
                 <label for="phone">
                     WhatsApp Number
                 </label>
@@ -274,6 +402,8 @@
                 >
 
 
+                <!-- TRANSACTION ID -->
+
                 <label for="transaction">
                     UPI Transaction ID / UTR
                 </label>
@@ -282,38 +412,61 @@
                     type="text"
                     id="transaction"
                     name="transaction"
-                    placeholder="Enter transaction ID"
+                    placeholder="Enter transaction ID / UTR"
                     required
                 >
 
 
-                <button type="submit" class="submit-btn">
+                <!-- SUBMIT BUTTON -->
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                    id="submitBtn"
+                >
                     SUBMIT PAYMENT DETAILS
                 </button>
 
             </form>
 
+
+            <!-- HIDDEN FRAME -->
+
             <iframe
                 name="hiddenFrame"
-                style="display:none;">
-            </iframe>
+                id="hiddenFrame"
+                style="display:none;"
+            ></iframe>
 
+
+            <!-- NOTE -->
 
             <p class="note">
+
                 Your payment will be manually verified.
-                Course access will be provided after successful
-                verification.
+                Course access will be provided after
+                successful verification.
+
             </p>
 
 
+            <!-- SUCCESS MESSAGE -->
+
             <div id="successMessage">
 
-                <strong>Details submitted successfully!</strong>
+                <strong>
+                    Details submitted successfully! ✓
+                </strong>
 
                 <br><br>
 
-                We will verify your payment and send the
-                course access link to your email/WhatsApp.
+                Your payment details have been received.
+
+                <br><br>
+
+                We will verify your payment and send
+                the course access link to your
+                email/WhatsApp.
 
             </div>
 
@@ -321,40 +474,123 @@
 
     </div>
 
+
+    <!-- FOOTER -->
+
     <footer>
+
         © 2026 Your Brand. All rights reserved.
+
     </footer>
 
 </div>
 
 
+
 <script>
 
-function showPayment() {
+    /*
+     * SHOW PAYMENT SECTION
+     */
 
-    document.getElementById("paymentSection").style.display = "block";
+    function showPayment() {
 
-    document.getElementById("paymentSection").scrollIntoView({
-        behavior: "smooth"
-    });
+        const paymentSection =
+            document.getElementById("paymentSection");
 
-}
+        paymentSection.style.display = "block";
+
+        paymentSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
 
 
-function submitted() {
 
-    setTimeout(function() {
+    /*
+     * FORM SUBMISSION
+     *
+     * The form is submitted to Google Apps Script.
+     * The hidden iframe prevents the customer from
+     * leaving the website.
+     */
 
-        document.getElementById("successMessage").style.display = "block";
+    const paymentForm =
+        document.getElementById("paymentForm");
 
-        document.querySelector(".submit-btn").disabled = true;
+    const submitBtn =
+        document.getElementById("submitBtn");
 
-        document.querySelector(".submit-btn").innerText =
-            "SUBMITTED ✓";
+    const successMessage =
+        document.getElementById("successMessage");
 
-    }, 1000);
 
-}
+    paymentForm.addEventListener(
+        "submit",
+        function() {
+
+            /*
+             * Prevent accidental double clicking
+             */
+
+            submitBtn.disabled = true;
+
+            submitBtn.innerText =
+                "SUBMITTING...";
+
+
+            /*
+             * Wait for Google Apps Script
+             * to receive the request.
+             */
+
+            setTimeout(
+                function() {
+
+                    /*
+                     * Show success message
+                     */
+
+                    successMessage.style.display =
+                        "block";
+
+
+                    /*
+                     * Clear customer information
+                     * so another customer can use
+                     * the same page.
+                     */
+
+                    paymentForm.reset();
+
+
+                    /*
+                     * Enable button again
+                     */
+
+                    submitBtn.disabled = false;
+
+                    submitBtn.innerText =
+                        "SUBMIT PAYMENT DETAILS";
+
+
+                    /*
+                     * Scroll to success message
+                     */
+
+                    successMessage.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                },
+                2000
+            );
+
+        }
+    );
 
 </script>
 
