@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Course | ₹39</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #111;
+            color: white;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            text-align: left;
+            margin: 20px 0;
+            line-height: 2;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: #111;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .buy-btn:hover {
+            background: #333;
+        }
+
+        #paymentSection {
+            display: none;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid #ddd;
+        }
+
+        .qr {
+            width: 220px;
+            height: 220px;
+            object-fit: contain;
+            margin: 15px auto;
+            display: block;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .upi {
+            background: #f1f1f1;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0 20px;
+            font-weight: bold;
+        }
+
+        .instruction {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            margin: 12px 0 6px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 10px;
+            background: #16803c;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #11652f;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #777;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+
+        #successMessage {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #e8f7ed;
+            border-radius: 10px;
+            color: #176b35;
+        }
+
+        footer {
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="product">
+
+        <span class="badge">DIGITAL COURSE</span>
+
+        <h1>YOUR COURSE NAME</h1>
+
+        <p class="description">
+            Learn everything you need about this course with our
+            beginner-friendly course material, notes and resources.
+        </p>
+
+        <div class="features">
+            ✓ Complete course material<br>
+            ✓ Easy-to-understand notes<br>
+            ✓ Practical resources<br>
+            ✓ Lifetime access
+        </div>
+
+        <div class="price">
+            ₹39
+        </div>
+
+        <button class="buy-btn" onclick="showPayment()">
+            BUY NOW
+        </button>
+
+
+        <!-- PAYMENT SECTION -->
+
+        <div id="paymentSection">
+
+            <h2>Complete Your Payment</h2>
+
+            <p class="instruction">
+                Scan the QR code below using Google Pay, PhonePe,
+                Paytm or any other UPI application.
+            </p>
+
+            <img src="upi-qr.png" class="qr" alt="UPI QR Code">
+
+            <div class="upi">
+                UPI ID: YOUR-UPI-ID@upi
+            </div>
+
+            <p class="instruction">
+                Pay exactly <strong>₹39</strong>.
+                After completing the payment, enter your details
+                and transaction ID below.
+            </p>
+
+
+            <!-- CUSTOMER FORM -->
+
+            <form
+                action="YOUR_GOOGLE_APPS_SCRIPT_URL"
+                method="POST"
+                target="hiddenFrame"
+                onsubmit="submitted()"
+            >
+
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label for="phone">
+                    WhatsApp Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter WhatsApp number"
+                    required
+                >
+
+
+                <label for="transaction">
+                    UPI Transaction ID / UTR
+                </label>
+
+                <input
+                    type="text"
+                    id="transaction"
+                    name="transaction"
+                    placeholder="Enter transaction ID"
+                    required
+                >
+
+
+                <button type="submit" class="submit-btn">
+                    SUBMIT PAYMENT DETAILS
+                </button>
+
+            </form>
+
+            <iframe
+                name="hiddenFrame"
+                style="display:none;">
+            </iframe>
+
+
+            <p class="note">
+                Your payment will be manually verified.
+                Course access will be provided after successful
+                verification.
+            </p>
+
+
+            <div id="successMessage">
+
+                <strong>Details submitted successfully!</strong>
+
+                <br><br>
+
+                We will verify your payment and send the
+                course access link to your email/WhatsApp.
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 Your Brand. All rights reserved.
+    </footer>
+
+</div>
+
+
+<script>
+
+function showPayment() {
+
+    document.getElementById("paymentSection").style.display = "block";
+
+    document.getElementById("paymentSection").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+function submitted() {
+
+    setTimeout(function() {
+
+        document.getElementById("successMessage").style.display = "block";
+
+        document.querySelector(".submit-btn").disabled = true;
+
+        document.querySelector(".submit-btn").innerText =
+            "SUBMITTED ✓";
+
+    }, 1000);
+
+}
+
+</script>
+
+</body>
+</html>
